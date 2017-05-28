@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAXPATH 4
+#define MAXPATH 20
 
 int getrand(int min, int max)
 {
@@ -50,28 +50,22 @@ int path[MAXPATH][MAXPATH] = {};
         }
     }
 
-    printf("path: %d\n", path[2][0]);
-    printf("path: %d\n", path[2][1]);
-    printf("path: %d\n", path[2][2]);
-    printf("path: %d\n", path[2][3]);
-
     for (j = 0; j < MAXPATH; j++){
         for (i = 0; i < MAXPATH; i++){
             printf ("%2d ", adjacencyMatrix[j][i]);
         }
         printf("\n");
     }
-    for (i = 0; i < MAXPATH; i++){
-        printf ("%d: ", i);
-        printf ("%d\n", shortestPaths[i]);
-    }
-    for (j = 0; j < MAXPATH; j++){
-        printf("path %d: 0;", j);
+    for (j = 1; j < MAXPATH; j++){
+        printf ("%2d: len ", j);
+        printf ("%d ", shortestPaths[j]);
+        printf("path: 0;");
         for (i = 1; path[j][i] != 0; i++){
             printf(" %d;", path[j][i]);
         }
         printf(" %d \n", j);
     }
+
 
     return 0;
 }
